@@ -1,0 +1,14 @@
+services:
+  streamlit:
+    image: streamlit-app
+    ports:
+      - 8081:8501
+    environment:
+      - FAST_API_LINK=http://fastapi:8070
+  fastapi:
+    image: fast-api-project
+    ports:
+      - 8080:8070
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8070
