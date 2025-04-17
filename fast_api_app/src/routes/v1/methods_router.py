@@ -8,12 +8,12 @@ router = APIRouter(
 )
 
 # Обработка GET-запроса с параметром пути
-@router.get("/items/{item_id}")
+@router.get("/items/{item_id}", summary="Получить информацию о предмете", description="Возвращает информацию о предмете по ID")
 def get_item(item_id: int, q: str = None):
     return {"item_id": item_id, "q": q}
 
 # Обработка POST-запроса с JSON-данными
-@router.post("/items/", summary="Получить информацию о предмете", description="Возвращает информацию о предмете по ID")
+@router.post("/items/")
 def create_item(item: Item):
     return {"name": item.name, "price": item.price}
 
